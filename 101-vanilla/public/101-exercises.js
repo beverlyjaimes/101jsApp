@@ -727,6 +727,21 @@ function isOneOrTwoOrThree(x) {
 // Review this code carefully https://gist.github.com/ryanorsinger/5627b954d119dabb3d8c44d56b38c354 if you want more guidance on Exercises 43, 44, and 45.
 // Write a function definition named isVowel that takes in value and returns true if the value is a, e, i, o, u in upper or lower case.
 
+
+// function isVowel(x){
+//     return ("aeiouAEIOU".indexOf(x) != -1); 
+
+//  }
+
+ const isVowel = (str) => {
+    return ['a', 'e', 'i', 'o', 'u'].includes(str.charAt(0).toLowerCase());
+  }
+
+   
+    
+
+
+
 assert(isVowel("a"), true, "Exercise 43");
 assert(isVowel("U"), true, "Exercise 43");
 assert(isVowel("banana"), false, "Exercise 43");
@@ -737,6 +752,18 @@ addToDone("Exercise 43 is correct.")
 
 // Exercise 44
 // Write a function definition named hasVowels that takes in value and returns true if the string contains any vowels.
+function hasVowels(str){
+    var result = false;
+    var chars = str.split('');
+    console.log(chars)
+  chars.forEach(function(letter){
+    if (isVowel(letter)) {
+      result = true
+    } 
+  }) 
+  return result 
+}
+           
 
 assert(hasVowels("banana"), true, "Exercise 44");
 assert(hasVowels("ubuntu"), true, "Exercise 44");
@@ -747,6 +774,16 @@ addToDone("Exercise 44 is correct.")
 
 // Exercise 45
 // Write a function definition named countVowels that takes in value and returns the count of the nubmer of vowels in a sequence.
+
+
+function countVowels (str) {
+    var chars = str.split('');
+    var vowels = chars.filter(function(l){
+        return isVowel(l)
+    })
+    return vowels.length;
+}
+    
 
 assert(countVowels("banana"), 3, "Exercise 45");
 assert(countVowels("ubuntu"), 3, "Exercise 45");
@@ -759,6 +796,14 @@ addToDone("Exercise 45 is correct.")
 // Exercise 46
 // Write a function definition named removeVowels that takes in string and returns the string without any vowels
 
+function removeVowels(str) {
+    var chars = str.split('');
+    var noVowels = chars.filter(function(l){
+        return !isVowel(l)
+    })
+    return noVowels.join("");
+}
+
 assert(removeVowels("banana"), "bnn", "Exercise 46");
 assert(removeVowels("ubuntu"), "bnt", "Exercise 46");
 assert(removeVowels("mango"), "mng", "Exercise 46");
@@ -768,6 +813,13 @@ addToDone("Exercise 46 is correct.")
 
 // Exercise 47
 // Write a function definition named startsWithVowel that takes in string and true if the string starts with a vowel
+function startsWithVowel(str) {
+    if ( isVowel(str.charAt(0))){
+        return true;
+    } else {
+        return false; 
+    }
+}
 
 assert(startsWithVowel("ubuntu"), true, "Exercise 47");
 assert(startsWithVowel("banana"), false, "Exercise 47");
@@ -778,7 +830,13 @@ addToDone("Exercise 47 is correct.")
 // Exercise 48
 // Write a function definition named endsWithVowel that takes in string and true if the string ends with a vowel
 
-
+function endsWithVowel(str) {
+    if ( isVowel(str.slice(-1))){
+        return true;
+    } else {
+        return false; 
+    }
+}
 assert(endsWithVowel("ubuntu"), true, "Exercise 48");
 assert(endsWithVowel("banana"), true, "Exercise 48");
 assert(endsWithVowel("mango"), true, "Exercise 48");
@@ -789,6 +847,14 @@ addToDone("Exercise 48 is correct.")
 // Exercise 49
 // Write a function definition named startsAndEndsWithVowel that takes in string and returns true if the string starts and ends with a vowel
 
+function startsAndEndsWithVowel(str) {
+    if (startsWithVowel(str) && endsWithVowel(str)){
+        return true;
+    } else {
+        return false;
+    }
+}
+
 assert(startsAndEndsWithVowel("ubuntu"), true, "Exercise 49");
 assert(startsAndEndsWithVowel("banana"), false, "Exercise 49");
 assert(startsAndEndsWithVowel("mango"), false, "Exercise 49");
@@ -797,6 +863,13 @@ addToDone("Exercise 49 is correct.")
 
 // Exercise 50
 // Write a function definition named first that takes in sequence and returns the first value of that sequence.
+
+function first (seq) {
+   if ( seq === String) {
+       seq.split('')
+   }
+   return seq[0];
+}
 
 assert(first("ubuntu"), "u", "Exercise 50");
 assert(first([1, 2, 3]), 1, "Exercise 50");
@@ -809,6 +882,13 @@ addToDone("Exercise 50 is correct.")
 // Exercise 51
 // Write a function definition named second that takes in sequence and returns the second value of that sequence.
 
+function second(seq) {
+    if (seq === String) {
+        seq.split('');
+    }
+    return seq[1];
+}
+
 assert(second("ubuntu"), "b", "Exercise 51");
 assert(second([1, 2, 3]), 2, "Exercise 51");
 assert(second(["JS", "is", "awesome"]), "is", "Exercise 51");
@@ -818,6 +898,13 @@ addToDone("Exercise 51 is correct.")
 // Exercise 52
 // Write a function definition named third that takes in sequence and returns the third value of that sequence.
 
+function third(seq) {
+    if (seq === String) {
+        seq.split('');
+    }
+    return seq[2];
+}
+
 assert(third("ubuntu"), "u", "Exercise 52");
 assert(third([1, 2, 3]), 3, "Exercise 52");
 assert(third(["JS", "is", "awesome"]), "awesome", "Exercise 52");
@@ -826,7 +913,12 @@ addToDone("Exercise 52 is correct.")
 
 // Exercise 53
 // Write a function definition named forth that takes in sequence and returns the forth value of that sequence.
-
+function forth(seq) {
+    if (seq === String) {
+        seq.split('');
+    }
+    return seq[3];
+}
 assert(forth("ubuntu"), "n", "Exercise 53");
 assert(forth([1, 2, 3, 4]), 4, "Exercise 53");
 assert(forth(["JS", "is", "awesome", "right?"]), "right?", "Exercise 53");
