@@ -934,6 +934,13 @@ assert(last(["JS", "is", "awesome"]), "awesome", "Exercise 54");
 assert(last(["kiwi", "mango", "guava"]), "guava", "Exercise 54");
 addToDone("Exercise 54 is correct.")
 
+function last(seq) {
+    if( seq === String){
+        seq.split('');
+    }
+   var x = seq.slice(-1)[0];
+   return x;
+}
 
 // Exercise 55
 // Write a function definition named secondToLast that takes in sequence and returns the second to last value of that sequence.
@@ -944,6 +951,14 @@ assert(secondToLast(["JS", "is", "awesome"]), "is", "Exercise 55");
 assert(secondToLast(["kiwi", "mango", "guava"]), "mango", "Exercise 55");
 addToDone("Exercise 55 is correct.")
 
+function secondToLast(seq) {
+    if( seq === String){
+        seq.split('');
+    }
+   var x = seq.slice(-2)[0];
+   return x;
+}
+
 
 // Exercise 56
 // Write a function definition named thirdToLast that takes in sequence and returns the third to last value of that sequence.
@@ -953,6 +968,14 @@ assert(thirdToLast([1, 2, 3, 4]), 2, "Exercise 56");
 assert(thirdToLast(["JS", "is", "awesome"]), "JS", "Exercise 56");
 assert(thirdToLast(["strawberry", "kiwi", "mango", "guava"]), "kiwi", "Exercise 56");
 addToDone("Exercise 56 is correct.")
+
+function thirdToLast(seq) {
+    if( seq === String){
+        seq.split('');
+    }
+   var x = seq.slice(-3)[0];
+   return x;
+}
 
 
 // Exercise 57
